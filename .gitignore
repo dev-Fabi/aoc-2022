@@ -1,0 +1,6 @@
+.gradle
+.idea
+build
+
+# Exclude puzzle inputs (https://twitter.com/ericwastl/status/1465805354214830081)
+src/day*/Day??.txt
