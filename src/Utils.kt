@@ -2,7 +2,7 @@ import java.io.File
 import java.math.BigInteger
 import java.security.MessageDigest
 
-class Utils(day: Int) {
+class Utils(val day: Int) {
     private val dayString: String = day.toString().padStart(2, '0')
 
     /**
