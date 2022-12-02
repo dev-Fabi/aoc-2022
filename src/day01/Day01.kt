@@ -6,7 +6,7 @@ fun main() {
     val utils = Utils(1)
 
     fun String.getCaloriesPerElf() = split("\n\n")
-        .map { it.split("\n").map { it.toLong() } }
+        .map { it.split("\n").map(String::toLong) }
         .map { it.sum() }
 
     fun part1(input: String): Long {

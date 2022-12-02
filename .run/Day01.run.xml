@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-    <configuration default="false" name="Day01Kt" type="JetRunConfigurationType" nameIsGenerated="true">
+    <configuration default="false" name="Day01" type="JetRunConfigurationType">
         <option name="MAIN_CLASS_NAME" value="day01.Day01Kt"/>
         <module name="aoc-2022.main"/>
         <shortenClasspath name="NONE"/>
