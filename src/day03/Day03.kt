@@ -15,10 +15,9 @@ fun main() {
     }
 
     fun part2(input: List<String>): Int {
-        return input.chunked(3)
-            .map { (a, b, c) ->
-                a.toSet().single { it in b && it in c }
-            }.prioritySum()
+        return input.chunked(3) { (a, b, c) ->
+            a.toSet().single { it in b && it in c }
+        }.prioritySum()
     }
 
     // Test if implementation meets criteria from the description
