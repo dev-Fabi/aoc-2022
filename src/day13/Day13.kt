@@ -69,31 +69,23 @@ fun main() {
 
 sealed class PackageData : Comparable<PackageData> {
     override fun compareTo(other: PackageData): Int {
-        if (this is DataInt && other is DataInt) {
-            return this.value.compareTo(other.value)
-        } else if (this is DataList && other is DataList) {
-            if (this.values.isEmpty() && other.values.isNotEmpty()) {
-                return -1
-            } else if (this.values.isNotEmpty() && other.values.isEmpty()) {
-                return 1
-            } else if (this.values.isEmpty()) {
-                return 0
+        return when {
+            this is DataList && other is DataList -> {
+                when {
+                    this.values.isEmpty() || other.values.isEmpty() -> this.values.count() - other.values.count()
+                    else ->
+                        when (val result = this.values.first().compareTo(other.values.first())) {
+                            0 -> DataList(this.values.drop(1)).compareTo(DataList(other.values.drop(1)))
+                            else -> result
+                        }
+                }
             }
 
-            val result = this.values.first().compareTo(other.values.first())
-
-            return if (result == 0) {
-                DataList(this.values.drop(1)).compareTo(DataList(other.values.drop(1)))
-            } else {
-                result
-            }
-        } else if (this is DataInt) {
-            return this.toDataList().compareTo(other)
-        } else if (other is DataInt) {
-            return this.compareTo(other.toDataList())
+            this is DataInt && other is DataInt -> this.value.compareTo(other.value)
+            this is DataInt -> this.toDataList().compareTo(other)
+            other is DataInt -> this.compareTo(other.toDataList())
+            else -> error("Unexpected comparison")
         }
-
-        error("Unexpected comparison")
     }
 }
 
