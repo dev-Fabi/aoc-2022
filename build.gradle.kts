@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "1.7.21"
+    kotlin("plugin.serialization") version "1.7.21"
 }
 
 repositories {
@@ -16,4 +17,8 @@ tasks {
     wrapper {
         gradleVersion = "7.6"
     }
+}
+
+dependencies {
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
 }
