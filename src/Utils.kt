@@ -64,3 +64,6 @@ fun <K> MutableMap<K, Int>.increase(key: K, by: Int = 1) = set(key, getOrDefault
  * Increases the value of the key in a map
  */
 fun <K> MutableMap<K, Long>.increase(key: K, by: Long = 1) = set(key, getOrDefault(key, 0).plus(by))
+
+infix fun Int.divisibleBy(other: Int): Boolean = this % other == 0
+infix fun Long.divisibleBy(other: Long): Boolean = this % other == 0L
