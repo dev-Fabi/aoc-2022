@@ -67,3 +67,6 @@ fun <K> MutableMap<K, Long>.increase(key: K, by: Long = 1) = set(key, getOrDefau
 
 infix fun Int.divisibleBy(other: Int): Boolean = this % other == 0
 infix fun Long.divisibleBy(other: Long): Boolean = this % other == 0L
+
+fun Int.nextIndexOf(collection: Collection<*>): Int = (this + 1) % collection.size
+fun Int.nextIndexOf(collection: CharSequence): Int = (this + 1) % collection.length
