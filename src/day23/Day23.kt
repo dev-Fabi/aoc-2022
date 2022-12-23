@@ -35,10 +35,6 @@ fun main() {
         }
     }
 
-    fun simulateRound(elves: Set<Elf>, moveOrder: List<Move>): Pair<Set<Elf>, List<Move>> {
-
-    }
-
     fun part1(input: List<String>): Int {
         val initialMoveOrder = listOf(
             Move.North,
